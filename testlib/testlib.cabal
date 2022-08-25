@@ -1,0 +1,22 @@
+name: testlib
+version: 0.1
+cabal-version: >= 1.8
+build-type: Simple
+
+library
+  hs-source-dirs: src
+  build-depends: base
+               , aeson
+  exposed-modules:
+    Testlib.Types
+  ghc-options: -Wall -Wredundant-constraints -Wincomplete-uni-patterns -Wincomplete-record-updates -O -fno-show-valid-hole-fits
+
+library gen
+  visibility: public
+  hs-source-dirs: gen
+  build-depends: base
+               , aeson
+               , testlib
+  exposed-modules:
+    Gen.Testlib.Types
+  ghc-options: -Wall -Wredundant-constraints -Wincomplete-uni-patterns -Wincomplete-record-updates -O -fno-show-valid-hole-fits
